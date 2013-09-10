@@ -30,13 +30,18 @@ print("|  |__| | |  `--'  | |  |\   | .----)   |                                
 print(" \______|  \______/  |__| \__| |_______/                                      ")
 print("Cleaning the repository...")
 if(os.path.exists("forge/")):
-        print("Removing Forge")
-        if(os.path.exists("forge/mcp/src/minecraft/net/medsouz/omg/")):
-                if(os.path.islink("forge/mcp/src/minecraft/net/medsouz/omg/")):
-                        os.unlink("forge/mcp/src/minecraft/net/medsouz/omg/")
-                else:
-                        os.rmdir("forge/mcp/src/minecraft/net/medsouz/omg/")
-        shutil.rmtree("forge/")
+		print("Removing Forge")
+		if(os.path.exists("forge/mcp/src/minecraft/net/medsouz/omg/")):
+			if(os.path.islink("forge/mcp/src/minecraft/net/medsouz/omg/")):
+				os.unlink("forge/mcp/src/minecraft/net/medsouz/omg/")
+			else:
+				os.rmdir("forge/mcp/src/minecraft/net/medsouz/omg/")
+		if(os.path.exists("forge/mcp/src/minecraft/assets/")):
+			if(os.path.islink("forge/mcp/src/minecraft/assets/")):
+				os.unlink("forge/mcp/src/minecraft/assets/")
+			else:
+				os.rmdir("forge/mcp/src/minecraft/assets/")
+		shutil.rmtree("forge/")
 else:
 	print("Forge not found")
 print("===================================")
@@ -57,10 +62,13 @@ if(sys.platform.startswith("linux") or sys.platform.startswith("darwin")):
 	runNative("mkdir mcp/src/minecraft/net/medsouz/")
 	runNative("mkdir mcp/src/minecraft/net/medsouz/omg/")
 	runNative("ln -s ../../../../../src/net/medsouz/omg mcp/src/minecraft/net/medsouz/omg")
+	runNative("ln -s ../../src/assets mcp/src/minecraft/assets")
 elif(sys.platform.startswith("win32")):
 	runNative("python install.py")
 	runNative("mkdir mcp\\src\\minecraft\\net\\medsouz\\")
 	runNative("mklink /j mcp\\src\\minecraft\\net\\medsouz\\omg ..\\src\\net\\medsouz\\omg")
+	runNative("mklink /j mcp\\src\\minecraft\\assets ..\\src\\assets")
+print("===================================")
 print("Placing dummy jar... (Allows the coremod to be launched from the development environment)")
 os.makedirs("mcp/jars/mods/")
 shutil.copyfile("../omg_dummy.jar", "mcp/jars/mods/omg_dummy.jar");
