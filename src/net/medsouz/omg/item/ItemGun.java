@@ -37,5 +37,9 @@ public class ItemGun extends Item{
 		par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 		return par1ItemStack;
 	}
+	
+	public int getMaxItemUseDuration(ItemStack par1ItemStack){
+		return 72000;
+	}
 
 }
