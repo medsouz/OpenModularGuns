@@ -27,28 +27,45 @@ public class GunM16 extends Gun{
 		if(isFirstPerson){
 			//Minecraft.getMinecraft().renderEngine.func_110577_a(er.func_110817_a((AbstractClientPlayer) ep));
 			Minecraft.getMinecraft().func_110434_K().func_110577_a(Minecraft.getMinecraft().thePlayer.func_110306_p());
-			GL11.glPushMatrix();
-				GL11.glTranslatef(0.6f, 0.01f, -1.1f);
-				GL11.glRotatef(-50f, 0, 0, 1);
-				GL11.glRotatef(-50f, -1, 0, 0);
-				er.renderFirstPersonArm(ep);
-			GL11.glPopMatrix();
-			GL11.glPushMatrix();
-				GL11.glTranslatef(0.3f, 0.3f, -0.4f);
-				GL11.glRotatef(-156f, 0, 0, 1);
-				Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
-				model.render(e, 0.03f);
-			GL11.glPopMatrix();
+			if(aimedDownSight){
+				GL11.glPushMatrix();
+					GL11.glTranslatef(0.4f, 0.3f, -1.7f);
+					GL11.glRotatef(-40f, 0, 0, 1);
+					GL11.glRotatef(-60f, -1, 0, 0);
+					er.renderFirstPersonArm(ep);
+				GL11.glPopMatrix();
+				GL11.glPushMatrix();
+					GL11.glTranslatef(-0.12f, 0.69f, -0.995f);
+					GL11.glRotatef(-156f, 0, 0, 1);
+					GL11.glRotatef(95f, 0, 1, 0);
+					Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
+					model.render(e, 0.03f);
+				GL11.glPopMatrix();
+			}else{
+				GL11.glPushMatrix();
+					GL11.glTranslatef(0.6f, 0.01f, -1.1f);
+					GL11.glRotatef(-50f, 0, 0, 1);
+					GL11.glRotatef(-50f, -1, 0, 0);
+					er.renderFirstPersonArm(ep);
+				GL11.glPopMatrix();
+				GL11.glPushMatrix();
+					GL11.glTranslatef(0.3f, 0.6f, -0.4f);
+					GL11.glRotatef(-156f, 0, 0, 1);
+					GL11.glRotatef(90f, 0, 1, 0);
+					Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
+					model.render(e, 0.03f);
+				GL11.glPopMatrix();
+			}
 		}else{
 			GL11.glPushMatrix();
 				if(aimedDownSight){
-					GL11.glTranslatef(0.6f, 0.1f, 0.1f);
-					GL11.glRotatef(-150f, 0, 0, 1);
-					GL11.glRotatef(-8f, 0, 1, 0);
+					GL11.glTranslatef(0.8f, 0.55f, 0.1f);
+					GL11.glRotatef(-145f, 0, 0, 1);
+					GL11.glRotatef(90f, 0, 1, 0);
 				}else{
-					GL11.glTranslatef(0.7f, 0.3f, 0.2f);
-					GL11.glRotatef(-100f, 0, 0, 1);
-					GL11.glRotatef(-15f, 0, 1, 0);
+					GL11.glTranslatef(0.5f, 0.5f, 0.2f);
+					GL11.glRotatef(-115f, 0, 0, 1);
+					GL11.glRotatef(90f, 0, 1, 0);
 				}
 				Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
 				model.render(e, 0.03f);
@@ -79,8 +96,8 @@ public class GunM16 extends Gun{
 			origRot.x = -1.6F;
 			origRot.y = -0.4F;
 		}else{
-			origRot.x = -0.8F;
-			origRot.y = -0.4F;
+			origRot.x = -1.1F;
+			origRot.y = -0.2F;
 		}
 		return origRot;
 	}
@@ -91,7 +108,7 @@ public class GunM16 extends Gun{
 			origPos.z = 0.2F;
 		}else{
 			origPos.x = 0.1F;
-			origPos.z = 0.1F;
+			origPos.z = 0.2F;
 		}
 		return origPos;
 	}
@@ -99,11 +116,11 @@ public class GunM16 extends Gun{
 	@Override
 	public Vector3 leftHandRot(Vector3 origRot, boolean aimedDownSight) {
 		if(aimedDownSight){
-			origRot.x = -1.6F;
-			origRot.y = 0.4F;
+			origRot.x = -1.8F;
+			origRot.y = 0.3F;
 		}else{
-			origRot.x = -1.35F;
-			origRot.y = 0.4F;
+			origRot.x = -1.7F;
+			origRot.y = 0.5F;
 		}
 		return origRot;
 	}
@@ -114,9 +131,8 @@ public class GunM16 extends Gun{
 			origPos.x = -0.05F;
 			origPos.z = -0.2F;
 		}else{
-			origPos.x = 0.0f;
 			origPos.y = 0.05F;
-			origPos.z = -0.2F;
+			origPos.z = -0.1F;
 		}
 		return origPos;
 	}
