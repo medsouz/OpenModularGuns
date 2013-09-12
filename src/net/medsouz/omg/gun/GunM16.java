@@ -76,10 +76,11 @@ public class GunM16 extends Gun{
 	@Override
 	public void drawDroppedGun(Entity e) {
 		GL11.glPushMatrix();
-			GL11.glTranslatef(0.7f, -0.2f, 0.1f);
-			GL11.glRotatef(180f, 0, 0, 1);
-			GL11.glRotatef(90f, 1, 0, 0);
+			GL11.glTranslatef(0f, -0.2f, 0f);
+			GL11.glRotatef(90f, 0, 0, 1);
+			GL11.glRotatef(e.rotationYaw, 1, 0, 0);
 			GL11.glScalef(1.5f, 1.5f, 1.5f);
+			
 			Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
 			model.render(e, 0.03f);
 		GL11.glPopMatrix();
