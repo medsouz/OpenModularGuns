@@ -17,7 +17,7 @@ public class AmmoSTANAG extends Ammunition{
 	
 	@Override
 	public String getAmmoType() {
-		return "5.56×45mm_NATO";
+		return "5.56x45mm_NATO";
 	}
 
 	@Override
