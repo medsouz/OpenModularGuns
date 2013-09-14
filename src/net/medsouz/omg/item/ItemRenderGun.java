@@ -1,6 +1,10 @@
 package net.medsouz.omg.item;
 
+import org.lwjgl.opengl.GL11;
+
 import net.medsouz.omg.api.Gun;
+import net.medsouz.omg.gun.ammo.AmmoSTANAG;
+import net.medsouz.omg.util.Vector3;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -10,9 +14,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 public class ItemRenderGun implements IItemRenderer {
 
-	public ItemRenderGun() {
-
-	}
+	AmmoSTANAG s = new AmmoSTANAG();//TODO: dont hardcode this
 
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
@@ -33,6 +35,16 @@ public class ItemRenderGun implements IItemRenderer {
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
 		return false;
 	}
+	
+	public void drawGun(Entity e, ItemGun ig, boolean firstPerson, boolean inUse){
+		ig.gun.drawGun(e , firstPerson, inUse);
+		GL11.glPushMatrix();
+			Vector3 attachPoint = ig.gun.getMagPosition(firstPerson, inUse);
+			GL11.glTranslatef(attachPoint.x, attachPoint.y, attachPoint.z);
+			ig.gun.setMagRotation(firstPerson, inUse);
+			s.drawMagazine(Minecraft.getMinecraft().renderViewEntity);
+		GL11.glPopMatrix();
+	}
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
@@ -43,10 +55,10 @@ public class ItemRenderGun implements IItemRenderer {
 		}
 		switch(type){
 			case EQUIPPED_FIRST_PERSON:
-				ig.gun.drawGun(Minecraft.getMinecraft().renderViewEntity, true, inUse);
+				drawGun(Minecraft.getMinecraft().renderViewEntity, ig, true, inUse);
 				break;
 			case EQUIPPED:
-				ig.gun.drawGun((Entity)data[1], false, inUse);
+				drawGun((Entity)data[1], ig, false, inUse);
 				break;
 			case ENTITY:
 				ig.gun.drawDroppedGun((Entity)data[1]);

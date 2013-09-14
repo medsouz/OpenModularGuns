@@ -17,5 +17,7 @@ public abstract class Gun {
 	public abstract Vector3 rightHandPos(Vector3 origPos, boolean aimedDownSight);
 	public abstract Vector3 leftHandRot(Vector3 origRot, boolean aimedDownSight);
 	public abstract Vector3 leftHandPos(Vector3 origPos, boolean aimedDownSight);
-
+	
+	public abstract Vector3 getMagPosition(boolean isFirstPerson, boolean aimedDownSight);
+	public abstract void setMagRotation(boolean isFirstPerson, boolean aimedDownSight);
 }

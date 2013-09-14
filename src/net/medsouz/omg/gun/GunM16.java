@@ -80,7 +80,6 @@ public class GunM16 extends Gun{
 			GL11.glRotatef(90f, 0, 0, 1);
 			GL11.glRotatef(e.rotationYaw, 1, 0, 0);
 			GL11.glScalef(1.5f, 1.5f, 1.5f);
-			
 			Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
 			model.render(e, 0.03f);
 		GL11.glPopMatrix();
@@ -138,4 +137,41 @@ public class GunM16 extends Gun{
 		return origPos;
 	}
 	
+	@Override
+	public Vector3 getMagPosition(boolean isFirstPerson, boolean aimedDownSight){
+		if(isFirstPerson){
+			if(aimedDownSight){
+				return new Vector3(-0.05f, 0.51f, -0.96f);
+			}else{
+				return new Vector3(0.37f, 0.42f, -0.38f);
+			}
+		}else{
+			if(aimedDownSight){
+				return new Vector3(1.02f,0.30f,0.07f);
+			}else{
+				return new Vector3(0.82f,0.39f,0.17f);
+			}
+		}
+	}
+	
+	@Override
+	public void setMagRotation(boolean isFirstPerson, boolean aimedDownSight){
+		if(isFirstPerson){
+			if(aimedDownSight){
+				GL11.glRotatef(90f, 0, 1, 0);
+				GL11.glRotatef(160f, 1, 0, 0);
+			}else{
+				GL11.glRotatef(90f, 0, 1, 0);
+				GL11.glRotatef(150f, 1, 0, 0);
+			}
+		}else{
+			if(aimedDownSight){
+				GL11.glRotatef(-90f, 0, 1, 0);
+				GL11.glRotatef(70f, 1, 0, 0);
+			}else{
+				GL11.glRotatef(-90f, 0, 1, 0);
+				GL11.glRotatef(97f, 1, 0, 0);
+			}
+		}
+	}
 }
