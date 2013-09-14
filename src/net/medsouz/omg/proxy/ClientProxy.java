@@ -25,6 +25,9 @@ public class ClientProxy extends CommonProxy{
 		MinecraftForgeClient.registerItemRenderer(OpenModularGuns.m16.itemID, (IItemRenderer)new ItemRenderGun());
 	}
 	
+	
+	private static boolean fixArm = false;//arms need to be "fixed"
+	
 	public static void bipedRotationHook(ModelBiped modelPlayer, Entity entity, float var3){
 		if(entity instanceof EntityPlayer){
 			EntityPlayer ep = (EntityPlayer)entity;
@@ -51,11 +54,17 @@ public class ClientProxy extends CommonProxy{
 						modelPlayer.bipedLeftArm.offsetY = leftOff.y;
 						modelPlayer.bipedLeftArm.offsetZ = leftOff.z;
 					}
+					fixArm = true;
 				}
-			}else{//TODO: Improve this so that it wont potentially break animations
+			}
+			if(fixArm){
+				modelPlayer.bipedRightArm.offsetX = 0F;
+				modelPlayer.bipedRightArm.offsetY = 0F;
 				modelPlayer.bipedRightArm.offsetZ = 0F;
-				modelPlayer.bipedLeftArm.offsetZ = 0F;
 				modelPlayer.bipedLeftArm.offsetX = 0F;
+				modelPlayer.bipedLeftArm.offsetY = 0F;
+				modelPlayer.bipedLeftArm.offsetZ = 0F;
+				fixArm = false;
 			}
 		}
 		

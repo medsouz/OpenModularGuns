@@ -29,9 +29,9 @@ public class GunM16 extends Gun{
 			Minecraft.getMinecraft().func_110434_K().func_110577_a(Minecraft.getMinecraft().thePlayer.func_110306_p());
 			if(aimedDownSight){
 				GL11.glPushMatrix();
-					GL11.glTranslatef(0.4f, 0.3f, -1.7f);
+					GL11.glTranslatef(0.3f, 0.1f, -1.6f);
 					GL11.glRotatef(-40f, 0, 0, 1);
-					GL11.glRotatef(-60f, -1, 0, 0);
+					GL11.glRotatef(60f, 1, 0, 0);
 					er.renderFirstPersonArm(ep);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
@@ -43,9 +43,9 @@ public class GunM16 extends Gun{
 				GL11.glPopMatrix();
 			}else{
 				GL11.glPushMatrix();
-					GL11.glTranslatef(0.6f, 0.01f, -1.1f);
-					GL11.glRotatef(-50f, 0, 0, 1);
-					GL11.glRotatef(-50f, -1, 0, 0);
+					GL11.glTranslatef(0.45f, 0f, -1.1f);
+					GL11.glRotatef(-60f, 0, 0, 1);
+					GL11.glRotatef(60f, 1, 0, 0);
 					er.renderFirstPersonArm(ep);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
