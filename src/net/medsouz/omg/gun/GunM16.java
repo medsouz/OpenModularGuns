@@ -16,7 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class GunM16 extends Gun{
-	//Placeholder, I do not have permission to use this model and I'm just using it for testing.
+
 	ModelM16 model = new ModelM16();
 	ResourceLocation m16tex = new ResourceLocation("omg", "textures/model/m16.png");
 
