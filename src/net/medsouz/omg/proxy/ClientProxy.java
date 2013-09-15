@@ -55,16 +55,25 @@ public class ClientProxy extends CommonProxy{
 						modelPlayer.bipedLeftArm.offsetZ = leftOff.z;
 					}
 					fixArm = true;
+				}else{//Fix if first person
+					modelPlayer.bipedRightArm.offsetX = 0F;
+					modelPlayer.bipedRightArm.offsetY = 0F;
+					modelPlayer.bipedRightArm.offsetZ = 0F;
+					modelPlayer.bipedLeftArm.offsetX = 0F;
+					modelPlayer.bipedLeftArm.offsetY = 0F;
+					modelPlayer.bipedLeftArm.offsetZ = 0F;
+					fixArm = false;
 				}
-			}
-			if(fixArm){
-				modelPlayer.bipedRightArm.offsetX = 0F;
-				modelPlayer.bipedRightArm.offsetY = 0F;
-				modelPlayer.bipedRightArm.offsetZ = 0F;
-				modelPlayer.bipedLeftArm.offsetX = 0F;
-				modelPlayer.bipedLeftArm.offsetY = 0F;
-				modelPlayer.bipedLeftArm.offsetZ = 0F;
-				fixArm = false;
+			}else{
+				if(fixArm){//fix if needed and there is no gun
+					modelPlayer.bipedRightArm.offsetX = 0F;
+					modelPlayer.bipedRightArm.offsetY = 0F;
+					modelPlayer.bipedRightArm.offsetZ = 0F;
+					modelPlayer.bipedLeftArm.offsetX = 0F;
+					modelPlayer.bipedLeftArm.offsetY = 0F;
+					modelPlayer.bipedLeftArm.offsetZ = 0F;
+					fixArm = false;
+				}
 			}
 		}
 		
