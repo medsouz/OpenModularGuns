@@ -40,39 +40,37 @@ public class ModelBipedTransformer implements IClassTransformer{
         	classRef.put("modelBipedClass", "net/minecraft/client/model/ModelBiped");;
         	classRef.put("setRotationAnglesMethod", "setRotationAngles");
         	classRef.put("setRotationAnglesDesc", "(FFFFFFL" + classRef.get("entityClass") + ";)V");
+        	classRef.put("aimedBow", "aimedBow");
         }else{
         	classRef.put("entityClass", "nm");
 			classRef.put("modelBipedClass", "bbg");
 			classRef.put("setRotationAnglesMethod", "a");
 			classRef.put("setRotationAnglesDesc", "(FFFFFFL" + classRef.get("entityClass") + ";)V");
+			classRef.put("aimedBow", "o");
         }
+        System.out.println("[OpenModularGuns] isDeobf: "+isDeobf);
 	}
 	
 	@Override
 	public byte[] transform(String name, String arg1, byte[] bytes) {
 		if (name.replace('.', '/').equals(classRef.get("modelBipedClass"))){
-			System.out.println("INJECTING INTO MODELBIPED");
+			System.out.println("[OpenModularGuns] INJECTING INTO MODELBIPED");
 			final ClassNode node = new ClassNode();
 	        final ClassReader reader = new ClassReader(bytes);
 	        reader.accept(node, 0);
 
-	        int operationCount = 1;
-	        int injectionCount = 0;
-
 	        final Iterator<MethodNode> methods = node.methods.iterator();
-
 	        label4123:
 	        while (methods.hasNext())
 	        {
 	            final MethodNode methodnode = methods.next();
-
 	            if (methodnode.name.equals(classRef.get("setRotationAnglesMethod")) && methodnode.desc.equals(classRef.get("setRotationAnglesDesc")))
 	            {
 	                for (int count = 0; count < methodnode.instructions.size(); count++)
 	                {
 	                    final AbstractInsnNode insnNode = methodnode.instructions.get(count);
 
-	                    if (insnNode instanceof FieldInsnNode && ((FieldInsnNode) insnNode).name.equals("aimedBow"))
+	                    if (insnNode instanceof FieldInsnNode && ((FieldInsnNode) insnNode).name.equals(classRef.get("aimedBow")))
 	                    {
 	                        InsnList toAdd = new InsnList();
 
@@ -82,7 +80,6 @@ public class ModelBipedTransformer implements IClassTransformer{
 	                        toAdd.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "net/medsouz/omg/proxy/ClientProxy", "bipedRotationHook", "(L" + classRef.get("modelBipedClass") + ";L" + classRef.get("entityClass") + ";F)V"));
 
 	                        methodnode.instructions.insertBefore(methodnode.instructions.get(count - 1), toAdd);
-	                        injectionCount++;
 	                        break label4123;
 	                    }
 	                }
