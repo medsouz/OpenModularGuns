@@ -141,15 +141,15 @@ public class GunM16 extends Gun{
 	public Vector3 getMagPosition(boolean isFirstPerson, boolean aimedDownSight){
 		if(isFirstPerson){
 			if(aimedDownSight){
-				return new Vector3(-0.05f, 0.51f, -0.96f);
+				return new Vector3(-0.05f, 0.51f, -0.97f);
 			}else{
 				return new Vector3(0.37f, 0.42f, -0.38f);
 			}
 		}else{
 			if(aimedDownSight){
-				return new Vector3(1.02f,0.30f,0.07f);
+				return new Vector3(0.9f,0.39f,0.13f);
 			}else{
-				return new Vector3(0.82f,0.39f,0.17f);
+				return new Vector3(0.65f,0.41f,0.23f);
 			}
 		}
 	}
@@ -166,10 +166,10 @@ public class GunM16 extends Gun{
 			}
 		}else{
 			if(aimedDownSight){
-				GL11.glRotatef(-90f, 0, 1, 0);
-				GL11.glRotatef(70f, 1, 0, 0);
+				GL11.glRotatef(90f, 0, 1, 0);
+				GL11.glRotatef(130f, 1, 0, 0);
 			}else{
-				GL11.glRotatef(-90f, 0, 1, 0);
+				GL11.glRotatef(90f, 0, 1, 0);
 				GL11.glRotatef(97f, 1, 0, 0);
 			}
 		}

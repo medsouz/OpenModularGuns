@@ -16,19 +16,19 @@ public class ModelSTANAG extends ModelBase
     textureWidth = 10;
     textureHeight = 6;
     
-      Top = new ModelRenderer(this, 0, 0);
-      Top.addBox(0F, 2.3F, 0.5F, 2, 3, 3);
-      Top.setRotationPoint(0F, 0F, 0F);
-      Top.setTextureSize(10, 6);
-      Top.mirror = true;
-      setRotation(Top, -0.3839724F, 0F, 0F);
-      Bottom = new ModelRenderer(this, 0, 0);
-      Bottom.addBox(0F, 0F, 0F, 2, 3, 3);
-      Bottom.setRotationPoint(0F, 0F, 0F);
-      Bottom.setTextureSize(10, 6);
-      Bottom.mirror = true;
-      setRotation(Bottom, -0.1919862F, 0F, 0F);
-      parts = new ModelRenderer[]{Top, Bottom};
+    Top = new ModelRenderer(this, 0, 0);
+    Top.addBox(0F, 2.3F, 0.5F, 2, 3, 3);
+    Top.setRotationPoint(0F, 0F, 0F);
+    Top.setTextureSize(10, 6);
+    Top.mirror = true;
+    setRotation(Top, -0.1919862F, 0F, 0F);
+    Bottom = new ModelRenderer(this, 0, 0);
+    Bottom.addBox(0F, 0F, 0F, 2, 3, 3);
+    Bottom.setRotationPoint(0F, 0F, 0F);
+    Bottom.setTextureSize(10, 6);
+    Bottom.mirror = true;
+    setRotation(Bottom, 0F, 0F, 0F);
+    parts = new ModelRenderer[]{Top, Bottom};
   }
   
   public void render(Entity entity, float f5)
