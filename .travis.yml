@@ -1,4 +1,6 @@
 language: java
 jdk:
   - openjdk7
+before_install:
+  - sudo apt-get install -qq wine
 script: bash build.sh
