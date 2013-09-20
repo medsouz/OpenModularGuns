@@ -60,9 +60,8 @@ sys.stdout.flush()
 if(sys.platform.startswith("linux") or sys.platform.startswith("darwin")):
 	runNative("python install.py")
 	runNative("mkdir mcp/src/minecraft/net/medsouz/")
-	runNative("mkdir mcp/src/minecraft/net/medsouz/omg/")
-	runNative("ln -s ../../../../../src/net/medsouz/omg mcp/src/minecraft/net/medsouz/omg")
-	runNative("ln -s ../../src/assets mcp/src/minecraft/assets")
+	runNative("ln -s ../../../../../../src/net/medsouz/omg mcp/src/minecraft/net/medsouz/omg")
+	runNative("ln -s ../../../../../src/assets/omg mcp/src/minecraft/assets/omg")
 elif(sys.platform.startswith("win32")):
 	runNative("python install.py")
 	runNative("mkdir mcp\\src\\minecraft\\net\\medsouz\\")
