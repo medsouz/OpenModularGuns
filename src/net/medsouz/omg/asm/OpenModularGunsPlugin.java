@@ -41,7 +41,7 @@ public class OpenModularGunsPlugin implements IFMLLoadingPlugin, IFMLCallHook{
 
 	@Override
 	public void injectData(Map<String, Object> data) {
-		System.out.println("FUK U MEDSOUZ");
+		
 	}
 
 }
