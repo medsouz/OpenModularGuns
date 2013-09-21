@@ -32,7 +32,7 @@ public class AmmoSTANAG extends Ammunition{
 
 	@Override
 	public void drawMagazine(Entity e) {
-		Minecraft.getMinecraft().renderEngine.func_110577_a(stanagtex);
+		Minecraft.getMinecraft().renderEngine.bindTexture(stanagtex);
 		model.render(e, 0.03f);
 	}
 

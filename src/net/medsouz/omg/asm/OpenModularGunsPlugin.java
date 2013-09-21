@@ -8,7 +8,7 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 
 @TransformerExclusions(value = {"net.medsouz.omg.asm"})
-@MCVersion("1.6.2")
+@MCVersion("1.6.4")
 public class OpenModularGunsPlugin implements IFMLLoadingPlugin, IFMLCallHook{
 	
 	@Override
@@ -41,7 +41,7 @@ public class OpenModularGunsPlugin implements IFMLLoadingPlugin, IFMLCallHook{
 
 	@Override
 	public void injectData(Map<String, Object> data) {
-		
+		System.out.println("FUK U MEDSOUZ");
 	}
 
 }

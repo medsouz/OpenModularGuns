@@ -32,7 +32,7 @@ public class AmmoBetaC extends Ammunition{
 
 	@Override
 	public void drawMagazine(Entity e) {
-		Minecraft.getMinecraft().renderEngine.func_110577_a(betactex);
+		Minecraft.getMinecraft().renderEngine.bindTexture(betactex);
 		model.render(e, 0.03f);
 	}
 

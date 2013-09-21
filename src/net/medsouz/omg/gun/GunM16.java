@@ -26,7 +26,7 @@ public class GunM16 extends Gun{
 		RenderPlayer er = (RenderPlayer) RenderManager.instance.getEntityRenderObject(ep);
 		if(isFirstPerson){
 			//Minecraft.getMinecraft().renderEngine.func_110577_a(er.func_110817_a((AbstractClientPlayer) ep));
-			Minecraft.getMinecraft().func_110434_K().func_110577_a(Minecraft.getMinecraft().thePlayer.func_110306_p());
+			Minecraft.getMinecraft().renderEngine.bindTexture(Minecraft.getMinecraft().thePlayer.getLocationSkin());
 			if(aimedDownSight){
 				GL11.glPushMatrix();
 					GL11.glTranslatef(0.3f, 0.1f, -1.6f);
@@ -38,7 +38,7 @@ public class GunM16 extends Gun{
 					GL11.glTranslatef(-0.12f, 0.69f, -0.995f);
 					GL11.glRotatef(-156f, 0, 0, 1);
 					GL11.glRotatef(95f, 0, 1, 0);
-					Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
+					Minecraft.getMinecraft().renderEngine.bindTexture(m16tex);
 					model.render(e, 0.03f);
 				GL11.glPopMatrix();
 			}else{
@@ -52,7 +52,7 @@ public class GunM16 extends Gun{
 					GL11.glTranslatef(0.3f, 0.6f, -0.4f);
 					GL11.glRotatef(-156f, 0, 0, 1);
 					GL11.glRotatef(90f, 0, 1, 0);
-					Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
+					Minecraft.getMinecraft().renderEngine.bindTexture(m16tex);
 					model.render(e, 0.03f);
 				GL11.glPopMatrix();
 			}
@@ -67,7 +67,7 @@ public class GunM16 extends Gun{
 					GL11.glRotatef(-115f, 0, 0, 1);
 					GL11.glRotatef(90f, 0, 1, 0);
 				}
-				Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
+				Minecraft.getMinecraft().renderEngine.bindTexture(m16tex);
 				model.render(e, 0.03f);
 			GL11.glPopMatrix();
 		}
@@ -80,7 +80,7 @@ public class GunM16 extends Gun{
 			GL11.glRotatef(90f, 0, 0, 1);
 			GL11.glRotatef(e.rotationYaw, 1, 0, 0);
 			GL11.glScalef(1.5f, 1.5f, 1.5f);
-			Minecraft.getMinecraft().renderEngine.func_110577_a(m16tex);
+			Minecraft.getMinecraft().renderEngine.bindTexture(m16tex);
 			model.render(e, 0.03f);
 		GL11.glPopMatrix();
 	}
