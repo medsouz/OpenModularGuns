@@ -36,11 +36,11 @@ if(os.path.exists("forge/")):
 				os.unlink("forge/mcp/src/minecraft/net/medsouz/omg/")
 			else:
 				os.rmdir("forge/mcp/src/minecraft/net/medsouz/omg/")
-		if(os.path.exists("forge/mcp/src/minecraft/assets/")):
-			if(os.path.islink("forge/mcp/src/minecraft/assets/")):
-				os.unlink("forge/mcp/src/minecraft/assets/")
+		if(os.path.exists("forge/mcp/src/minecraft/assets/omg")):
+			if(os.path.islink("forge/mcp/src/minecraft/assets/omg")):
+				os.unlink("forge/mcp/src/minecraft/assets/omg")
 			else:
-				os.rmdir("forge/mcp/src/minecraft/assets/")
+				os.rmdir("forge/mcp/src/minecraft/assets/omg")
 		shutil.rmtree("forge/")
 else:
 	print("Forge not found")
@@ -66,7 +66,7 @@ elif(sys.platform.startswith("win32")):
 	runNative("python install.py")
 	runNative("mkdir mcp\\src\\minecraft\\net\\medsouz\\")
 	runNative("mklink /j mcp\\src\\minecraft\\net\\medsouz\\omg ..\\src\\net\\medsouz\\omg")
-	runNative("mklink /j mcp\\src\\minecraft\\assets ..\\src\\assets")
+	runNative("mklink /j mcp\\src\\minecraft\\assets\\omg ..\\src\\assets\\omg")
 print("===================================")
 print("Placing dummy jar... (Allows the coremod to be launched from the development environment)")
 os.makedirs("mcp/jars/mods/")
