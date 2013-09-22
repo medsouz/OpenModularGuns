@@ -1,10 +1,13 @@
 package net.medsouz.omg.item;
 
 import net.medsouz.omg.api.Gun;
+import net.medsouz.omg.net.PacketHandler;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,6 +16,8 @@ import net.minecraft.world.World;
 public class ItemGun extends Item{
 
 	public Gun gun;
+
+	public long lastShot = 0;
 	
 	public ItemGun(int par1, Gun g) {
 		super(par1);
@@ -40,6 +45,19 @@ public class ItemGun extends Item{
 	
 	public int getMaxItemUseDuration(ItemStack par1ItemStack){
 		return 72000;
+	}
+	
+	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
+		if(par2World.isRemote){//client
+			if(Minecraft.getMinecraft().gameSettings.keyBindAttack.pressed){
+				if(lastShot < System.currentTimeMillis() - 1000){
+					lastShot = System.currentTimeMillis();
+					PacketHandler.sendPacketShot();
+				}
+			}
+		}else{//server
+			
+		}
 	}
 
 }
