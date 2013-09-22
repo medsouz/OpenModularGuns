@@ -7,6 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import net.medsouz.omg.OpenModularGuns;
+import net.medsouz.omg.item.ItemGun;
 import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -30,15 +31,17 @@ public class PacketHandler implements IPacketHandler {
 				if(dis.readInt() == 0){
 					if(player instanceof EntityPlayer){
 						EntityPlayer ep = (EntityPlayer)player;
-						if(OpenModularGuns.lastShots.containsKey(ep.username)){
-							if(OpenModularGuns.lastShots.get(ep.username) > System.currentTimeMillis() - 900){
-								System.out.println(ep.username + " is firing too fast!");
-								return;
+						if(ep.getHeldItem() != null && ep.getHeldItem().getItem() instanceof ItemGun){
+							if(OpenModularGuns.lastShots.containsKey(ep.username)){
+								if(OpenModularGuns.lastShots.get(ep.username) > System.currentTimeMillis() - 900){
+									System.out.println(ep.username + " is firing too fast!");
+									return;
+								}
 							}
+							OpenModularGuns.lastShots.put(ep.username, System.currentTimeMillis());
+							EntityArrow e = new EntityArrow(ep.worldObj, ep, 2.0f);
+							ep.worldObj.spawnEntityInWorld(e);
 						}
-						OpenModularGuns.lastShots.put(ep.username, System.currentTimeMillis());
-						EntityArrow e = new EntityArrow(ep.worldObj, ep, 2.0f);
-						ep.worldObj.spawnEntityInWorld(e);
 					}
 				}
 			} catch (IOException e) {
