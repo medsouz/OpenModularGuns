@@ -2,6 +2,9 @@ package net.medsouz.omg.gun;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.medsouz.omg.api.Gun;
 import net.medsouz.omg.model.ModelM16;
 import net.medsouz.omg.util.Vector3;
@@ -16,10 +19,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class GunM16 extends Gun{
-
-	ModelM16 model = new ModelM16();
+	
+	ModelM16 model;
 	ResourceLocation m16tex = new ResourceLocation("omg", "textures/model/m16.png");
 
+	public GunM16(){
+		Side side = FMLCommonHandler.instance().getEffectiveSide();
+		if(side == Side.CLIENT){
+			model = new ModelM16();
+		}
+	}
+	
 	@Override
 	public void drawGun(Entity e, boolean isFirstPerson, boolean aimedDownSight) {
 		EntityPlayer ep = (EntityPlayer) e;
