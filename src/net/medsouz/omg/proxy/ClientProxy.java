@@ -1,15 +1,19 @@
 package net.medsouz.omg.proxy;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.medsouz.omg.OpenModularGuns;
 import net.medsouz.omg.api.Gun;
+import net.medsouz.omg.entity.EntityAmmunition;
 import net.medsouz.omg.gun.GunM16;
 import net.medsouz.omg.item.ItemGun;
 import net.medsouz.omg.item.ItemRenderGun;
+import net.medsouz.omg.render.RenderAmmunition;
 import net.medsouz.omg.util.Vector3;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.IItemRenderer;
@@ -23,6 +27,8 @@ public class ClientProxy extends CommonProxy{
 	
 	public void registerRenderers() {
 		MinecraftForgeClient.registerItemRenderer(OpenModularGuns.m16.itemID, (IItemRenderer)new ItemRenderGun());
+		RenderingRegistry.registerEntityRenderingHandler(EntityAmmunition.class, new RenderAmmunition());
+		System.out.println("Registered renderers");
 	}
 	
 	

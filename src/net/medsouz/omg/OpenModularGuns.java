@@ -2,6 +2,7 @@ package net.medsouz.omg;
 
 import java.util.HashMap;
 
+import net.medsouz.omg.entity.EntityAmmunition;
 import net.medsouz.omg.gun.GunM16;
 import net.medsouz.omg.item.ItemGun;
 import net.medsouz.omg.item.ItemRenderGun;
@@ -16,6 +17,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -34,6 +36,7 @@ public class OpenModularGuns {
 	public void init(FMLInitializationEvent evt) {
 		LanguageRegistry.addName(m16, "m16");
 		GameRegistry.registerItem(m16, "m16");
+		EntityRegistry.registerModEntity(EntityAmmunition.class, "OMG Ammunition", 99, this, 644, 120, true);
 		proxy.load();
 		proxy.registerRenderers();
 	}
