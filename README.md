@@ -2,6 +2,8 @@ OpenModularGuns
 ===============
 An open source Minecraft gun mod. The goal is to allow users to be tacti _cool_ with 3D gun models, attachments, and more!
 
+[![Build Status](https://travis-ci.org/medsouz/OpenModularGuns.png?branch=master)](https://travis-ci.org/medsouz/OpenModularGuns)
+
 Planned Features
 ----------------
 
@@ -27,3 +29,8 @@ Contributing
 ------------
 
 If you have an idea or want to contribute code to the project you can probably find medsouz on the Tropicraft IRC channel [here](http://webchat.esper.net/?nick=&channels=tropicraft).
+
+
+License
+-------
+This project uses the Lesser GNU Public License, for more details see the attached LICENSE.txt.
