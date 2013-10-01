@@ -39,9 +39,9 @@ public class PacketHandler implements IPacketHandler {
 									return;
 								}
 							}
-							OpenModularGuns.lastShots.put(ep.username, System.currentTimeMillis());
 							EntityAmmunition e = new EntityAmmunition(ep.worldObj, ep, 5f);
 							ep.worldObj.spawnEntityInWorld(e);
+							OpenModularGuns.lastShots.put(ep.username, System.currentTimeMillis());
 						}
 					}
 				}

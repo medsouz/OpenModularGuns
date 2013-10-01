@@ -2,8 +2,10 @@ package net.medsouz.omg.entity;
 
 import java.util.List;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.medsouz.omg.model.ModelM16;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.block.BlockPane;
@@ -98,7 +100,7 @@ public class EntityAmmunition extends Entity implements IProjectile{
 	
 	public void onUpdate(){
 		super.onUpdate();
-
+		
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
             float f = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
@@ -178,7 +180,7 @@ public class EntityAmmunition extends Entity implements IProjectile{
                     {
                         damagesource = DamageSource.causeThrownDamage(this, this.shootingEntity);
                     }
-                    movingobjectposition.entityHit.attackEntityFrom(damagesource, 20);
+                    movingobjectposition.entityHit.attackEntityFrom(damagesource, 3.5f);
                     worldObj.removeEntity(this);
                 }
                 else
@@ -245,7 +247,6 @@ public class EntityAmmunition extends Entity implements IProjectile{
             this.motionY -= (double)f1;
             this.setPosition(this.posX, this.posY, this.posZ);
             this.doBlockCollisions();
-        
         }
 
 	@Override

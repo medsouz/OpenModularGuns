@@ -51,8 +51,8 @@ public class ItemGun extends Item{
 		if(par2World.isRemote){//client
 			if(Minecraft.getMinecraft().gameSettings.keyBindAttack.pressed){
 				if(lastShot < System.currentTimeMillis() - 1000){
-					lastShot = System.currentTimeMillis();
 					PacketHandler.sendPacketShot();
+					lastShot = System.currentTimeMillis();
 				}
 			}
 		}else{//server
