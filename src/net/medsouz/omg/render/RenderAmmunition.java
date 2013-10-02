@@ -14,7 +14,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderAmmunition extends Render{
-//TODO: fix horrible desync issue :(
+
 	private static final ResourceLocation arrowTextures = new ResourceLocation("textures/entity/arrow.png");
 	ModelBullet b = new ModelBullet();
 	

@@ -9,6 +9,7 @@ import java.io.IOException;
 import net.medsouz.omg.OpenModularGuns;
 import net.medsouz.omg.entity.EntityAmmunition;
 import net.medsouz.omg.item.ItemGun;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.NetClientHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -40,7 +41,7 @@ public class PacketHandler implements IPacketHandler {
 								}
 							}
 							EntityAmmunition e = new EntityAmmunition(ep.worldObj, ep, 5f);
-							ep.worldObj.spawnEntityInWorld(e);
+							Minecraft.getMinecraft().theWorld.spawnEntityInWorld(e);
 							OpenModularGuns.lastShots.put(ep.username, System.currentTimeMillis());
 						}
 					}
