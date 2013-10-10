@@ -1,9 +1,9 @@
-package net.medsouz.omg.render;
+package net.medsouz.omg.client.render;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import net.medsouz.omg.model.ModelBullet;
+import net.medsouz.omg.client.model.ModelBullet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

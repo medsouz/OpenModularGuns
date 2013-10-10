@@ -1,6 +1,6 @@
 package net.medsouz.omg.api;
 
-import net.medsouz.omg.model.ModelM16;
+import net.medsouz.omg.client.model.ModelM16;
 import net.medsouz.omg.util.Vector3;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
