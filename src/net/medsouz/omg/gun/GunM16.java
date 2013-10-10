@@ -184,4 +184,14 @@ public class GunM16 extends Gun{
 			}
 		}
 	}
+
+	@Override
+	public int getFireRate() {
+		return 500;
+	}
+
+	@Override
+	public String getFireSound() {
+		return "omg:msixteen";
+	}
 }

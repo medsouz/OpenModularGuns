@@ -5,6 +5,7 @@ import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.medsouz.omg.OpenModularGuns;
 import net.medsouz.omg.api.Gun;
+import net.medsouz.omg.client.OMGSoundRegister;
 import net.medsouz.omg.client.render.ItemRenderGun;
 import net.medsouz.omg.client.render.RenderAmmunition;
 import net.medsouz.omg.entity.EntityAmmunition;
@@ -18,6 +19,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy{
 	
@@ -29,6 +31,7 @@ public class ClientProxy extends CommonProxy{
 		MinecraftForgeClient.registerItemRenderer(OpenModularGuns.m16.itemID, (IItemRenderer)new ItemRenderGun());
 		RenderingRegistry.registerEntityRenderingHandler(EntityAmmunition.class, new RenderAmmunition());
 		System.out.println("Registered renderers");
+		MinecraftForge.EVENT_BUS.register(new OMGSoundRegister());
 	}
 	
 	

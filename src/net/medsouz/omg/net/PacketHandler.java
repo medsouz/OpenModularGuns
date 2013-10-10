@@ -7,6 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import net.medsouz.omg.OpenModularGuns;
+import net.medsouz.omg.api.Gun;
 import net.medsouz.omg.entity.EntityAmmunition;
 import net.medsouz.omg.item.ItemGun;
 import net.minecraft.client.Minecraft;
@@ -35,8 +36,9 @@ public class PacketHandler implements IPacketHandler {
 					if(player instanceof EntityPlayer){
 						EntityPlayer ep = (EntityPlayer)player;
 						if(ep.getHeldItem() != null && ep.getHeldItem().getItem() instanceof ItemGun){
+							Gun g = ((ItemGun)ep.getHeldItem().getItem()).gun;
 							if(OpenModularGuns.lastShots.containsKey(ep.username)){
-								if(OpenModularGuns.lastShots.get(ep.username) > System.currentTimeMillis() - 900){
+								if(OpenModularGuns.lastShots.get(ep.username) > System.currentTimeMillis() - g.getFireRate()){
 									System.out.println(ep.username + " is firing too fast!");
 									return;
 								}
@@ -44,6 +46,7 @@ public class PacketHandler implements IPacketHandler {
 							EntityAmmunition e = new EntityAmmunition(ep.worldObj, ep, 2.5f);
 							DimensionManager.getWorld(ep.dimension).spawnEntityInWorld(e);
 							OpenModularGuns.lastShots.put(ep.username, System.currentTimeMillis());
+							DimensionManager.getWorld(ep.dimension).playSoundAtEntity(ep, g.getFireSound(), 1, 1);
 						}
 					}
 				}
