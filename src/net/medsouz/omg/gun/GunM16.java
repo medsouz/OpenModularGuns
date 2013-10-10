@@ -45,7 +45,7 @@ public class GunM16 extends Gun{
 					er.renderFirstPersonArm(ep);
 				GL11.glPopMatrix();
 				GL11.glPushMatrix();
-					GL11.glTranslatef(-0.12f, 0.69f, -0.995f);
+					GL11.glTranslatef(-0.12f, 0.68f, -0.997f);
 					GL11.glRotatef(-156f, 0, 0, 1);
 					GL11.glRotatef(95f, 0, 1, 0);
 					Minecraft.getMinecraft().renderEngine.bindTexture(m16tex);

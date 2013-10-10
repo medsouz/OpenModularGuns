@@ -46,10 +46,10 @@ public class EntityAmmunition extends Entity implements IProjectile{
 	        this.setSize(0.5F, 0.5F);
 	        this.setLocationAndAngles(par2EntityLivingBase.posX, par2EntityLivingBase.posY + (double)par2EntityLivingBase.getEyeHeight(), par2EntityLivingBase.posZ, par2EntityLivingBase.rotationYaw, par2EntityLivingBase.rotationPitch);
 	        this.posX -= (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
-	        this.posY -= 0.10000000149011612D;
+	        //this.posY -= 0.10000000149011612D;
 	        this.posZ -= (double)(MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * 0.16F);
 	        this.setPosition(this.posX, this.posY, this.posZ);
-	        this.yOffset = 0.0F;
+	        this.yOffset = 0.5F;
 	        this.motionX = (double)(-MathHelper.sin(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI)) * par3;
 	        this.motionZ = (double)(MathHelper.cos(this.rotationYaw / 180.0F * (float)Math.PI) * MathHelper.cos(this.rotationPitch / 180.0F * (float)Math.PI)) * par3;
 	        this.motionY = (double)(-MathHelper.sin(this.rotationPitch / 180.0F * (float)Math.PI)) * par3;
@@ -228,7 +228,7 @@ public class EntityAmmunition extends Entity implements IProjectile{
             this.rotationPitch = this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) * 0.2F;
             this.rotationYaw = this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * 0.2F;
             float f4 = 0.99F;
-            f1 = 0.05F;
+            f1 = 0.01F;
 
             if (this.isInWater())
             {

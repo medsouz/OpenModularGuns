@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet250CustomPayload;
+import net.minecraftforge.common.DimensionManager;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.IPacketHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
@@ -40,8 +41,8 @@ public class PacketHandler implements IPacketHandler {
 									return;
 								}
 							}
-							EntityAmmunition e = new EntityAmmunition(ep.worldObj, ep, 5f);
-							Minecraft.getMinecraft().theWorld.spawnEntityInWorld(e);
+							EntityAmmunition e = new EntityAmmunition(ep.worldObj, ep, 2.5f);
+							DimensionManager.getWorld(ep.dimension).spawnEntityInWorld(e);
 							OpenModularGuns.lastShots.put(ep.username, System.currentTimeMillis());
 						}
 					}

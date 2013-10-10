@@ -36,7 +36,7 @@ public class OpenModularGuns {
 	public void init(FMLInitializationEvent evt) {
 		LanguageRegistry.addName(m16, "m16");
 		GameRegistry.registerItem(m16, "m16");
-		EntityRegistry.registerModEntity(EntityAmmunition.class, "OMG Ammunition", 99, this, 64, 20, true);
+		EntityRegistry.registerModEntity(EntityAmmunition.class, "OMG Ammunition", 99, this, 255, 20, true);
 		proxy.load();
 		proxy.registerRenderers();
 	}
