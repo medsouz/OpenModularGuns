@@ -2,10 +2,10 @@ package net.medsouz.omg;
 
 import java.util.HashMap;
 
+import net.medsouz.omg.client.render.ItemRenderGun;
 import net.medsouz.omg.entity.EntityAmmunition;
 import net.medsouz.omg.gun.GunM16;
 import net.medsouz.omg.item.ItemGun;
-import net.medsouz.omg.item.ItemRenderGun;
 import net.medsouz.omg.net.PacketHandler;
 import net.medsouz.omg.proxy.CommonProxy;
 import net.minecraft.item.Item;

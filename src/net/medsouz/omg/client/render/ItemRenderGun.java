@@ -1,9 +1,10 @@
-package net.medsouz.omg.item;
+package net.medsouz.omg.client.render;
 
 import org.lwjgl.opengl.GL11;
 
 import net.medsouz.omg.api.Gun;
 import net.medsouz.omg.gun.ammo.AmmoSTANAG;
+import net.medsouz.omg.item.ItemGun;
 import net.medsouz.omg.util.Vector3;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
